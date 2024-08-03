@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonaria Value - Home</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            transition: color 0.5s, background-color 0.5s;
+        }
+        header, footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            margin: 0 0 20px 0;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        button {
+            margin: 10px;
+            padding: 20px 40px;
+            font-size: 1.5em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            width: 200px;
+        }
+        button:hover {
+            opacity: 0.8;
+        }
+        .white-button {
+            background-color: white;
+            color: black;
+            border: 1px solid #ccc;
+        }
+        .gold-button {
+            background-color: gold;
+            color: black;
+        }
+        .gray-button {
+            background-color: gray;
+            color: white;
+        }
+        .silver-button {
+            background-color: silver;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to SonariaValue</h1>
+    </header>
+    <main>
+        <h1>Choose a Background Color</h1>
+        <div class="button-container">
+            <button class="white-button" onclick="chooseBackground('white')">White</button>
+            <button class="gold-button" onclick="chooseBackground('gold')">Gold</button>
+            <button class="gray-button" onclick="chooseBackground('gray')">Gray</button>
+            <button class="silver-button" onclick="chooseBackground('silver')">Silver</button>
+        </div>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 SonariaValue. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function chooseBackground(color) {
+            localStorage.setItem('backgroundColor', color);
+            window.location.href = 'calculator.html';
+        }
+    </script>
+</body>
+</html>

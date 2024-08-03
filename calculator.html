@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Value Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+      <img src="download (16).jpeg" alt="Header Image">
+    </header>
+       <h1>Creature Value Calculator</h1>
+       <h2>Win/Fair/Lose</h2>
+    <div class="container">
+        <div class="box" id="themBox">
+            <button class="plus-button" onclick="toggleThemBox()">+</button>
+            <div class="content" id="themContent">
+              <h2>Me:</h2>
+              
+              <input type="text" id="themSearch" placeholder="Search Creature" oninput="filterCreatures('them')">
+              
+                <select id="themCreature" onchange="calculateValue()">
+                    <option value="">Select Creature</option>
+                </select>
+                <select id="themCreature" onchange="calculateValue()">
+                  <option value="">Select Creature</option>
+                </select>
+                <select id="themCreature" onchange="calculateValue()">
+                  <option value="">Select Creature</option>
+                </select>
+                <select id="themCreature" onchange="calculateValue()">
+                  <option value="">Select Creature</option>
+                </select>
+                <select id="themCreature" onchange="calculateValue()">
+                  <option value="">Select Creature</option>
+                </select>
+                <input type="number" id="themMush" placeholder="Enter Mush Amount" onchange="calculateValue()">
+            </div>
+        </div>
+        <div class="box" id="meBox">
+            <button class="plus-button" onclick="toggleMeBox()">+</button>
+            <div class="content" id="meContent">
+              <h2>Them:</h2>
+              
+              <input type="text" id="meSearch" placeholder="Search Creature" oninput="filterCreatures('me')">
+              
+                <select id="meCreature" onchange="calculateValue()">
+                    <option value="">Select Creature</option>
+                </select>
+                <select id="meCreature" onchange="calculateValue()">
+                    <option value="">Select Creature</option>
+                </select>
+                <select id="meCreature" onchange="calculateValue()">
+                  <option value="">Select Creature</option>
+                </select>
+                <select id="meCreature" onchange="calculateValue()">
+                  <option value="">Select Creature</option>
+                </select>
+                <select id="meCreature" onchange="calculateValue()">
+                  <option value="">Select Creature</option>
+                </select>
+                <input type="number" id="meMush" placeholder="Enter Mush Amount" onchange="calculateValue()">
+            </div>
+        </div>
+    </div>
+    <div class="results">
+        <div id="loading" class="loading">Loading...</div>
+        <p id="resultText">Results will be shown here</p>
+    </div>
+    
+    <div class="text">
+    <h2>About The Site</h2>
+    <p>This is not a official value site of creature of sonaria, some of the value in here are base on players, trade realm
+    people, discord people. some value might not be that updated so please be patient, i will do my best to update the value as soon as i can.</p>
+    </div>
+    
+    <footer>
+        <p>&copy; 2024 SonariaValue. All rights reserved.</p>
+    </footer>
+    
+     <script src="script.js"></script>
+     <script>
+       // Set the background color based on localStorage
+       document.addEventListener('DOMContentLoaded', (event) => {
+         const backgroundColor = localStorage.getItem('backgroundColor');
+         if (backgroundColor) {
+           document.body.style.backgroundColor = backgroundColor;
+         }
+       });
+     </script>
+    <script src="script.js"></script>
+</body>
+</html>
