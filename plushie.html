@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plush Value Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Plushie Values</h1>
+    </header>
+    <div class="search-container">
+        <input type="text" id="searchBar" placeholder="Search Plush" oninput="filterPlushies()">
+    </div>
+    
+    <div id="menu" class="menu">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeMenu()">&times;</a>
+        <a href="index.html">Home</a>
+        <a href="value-page.html">Creature Value</a>
+        <a href="plushie.html">Plush Value</a>
+        <a href="token.html">Token Value</a>
+    </div>
+    <div class="menu-button" onclick="openMenu()">&#9776;</div>
+    
+    <div class="plush-container" id="plushContainer">
+        <!-- Plush boxes will be dynamically inserted here -->
+    </div>
+    <footer>
+        <p>&copy; 2024 MystiValue. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const plushies = [
+            { name: "Egg Plush", value: "2k-3k", demand: "Decent", stability: "Stable" },
+            { name: "Frost Drag Plush", value: "2k", demand: "Decent", stability: "Stable" },
+            { name: "Void Plush", value: "2k-3k", demand: "Decent", stability: "Stable" },
+            { name: "Pig Lantern Plush", value: "20k", demand: "High", stability: "Rising" },
+            // Add more plushies as needed
+        ];
+
+        function displayPlushies(plushies) {
+            const container = document.getElementById("plushContainer");
+            container.innerHTML = "";
+            plushies.forEach(plush => {
+                const plushBox = document.createElement("div");
+                plushBox.className = "plush-box";
+                plushBox.innerHTML = `
+                    <h2>${plush.name}</h2>
+                    <p>Value: ${plush.value}</p>
+                    <p>Demand: ${plush.demand}</p>
+                    <p>Stability: ${plush.stability}</p>
+                `;
+                container.appendChild(plushBox);
+            });
+        }
+
+        function filterPlushies() {
+            const query = document.getElementById("searchBar").value.toLowerCase();
+            const filteredPlushies = plushies.filter(plush => plush.name.toLowerCase().includes(query));
+            displayPlushies(filteredPlushies);
+        }
+
+        window.onload = () => {
+            displayPlushies(plushies);
+        };
+    </script>
+    
+    <script>
+        function openMenu() {
+            document.getElementById("menu").style.width = "250px";
+        }
+
+        function closeMenu() {
+            document.getElementById("menu").style.width = "0";
+        }
+    </script>
+</body>
+</html>

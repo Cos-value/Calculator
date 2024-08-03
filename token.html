@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Token Values</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Token Values</h1>
+    </header>
+    <div class="search-container">
+        <input type="text" id="searchBar" placeholder="Search Token" oninput="filterTokens()">
+    </div>
+    
+    <div id="menu" class="menu">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeMenu()">&times;</a>
+          <a href="index.html">Home</a>
+          <a href="value-page.html">Creature Value</a>
+          <a href="plushie.html">Plush Value</a>
+          <a href="token.html">Token Value</a>
+    </div>
+    <div class="menu-button" onclick="openMenu()">&#9776;</div>
+    
+    <div class="token-container" id="tokenContainer">
+        <!-- Token boxes will be dynamically inserted here -->
+    </div>
+    <footer>
+        <p>&copy; 2024 MystiValue. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const tokens = [
+            { name: "Appearance Change Token", value: "100-200", demand: "Low", stability: "Stable", imgSrc: "ChangeColorsToken.png"},
+            { name: "Blood Moon Summon Token", value: "", demand: "", stability: "", imgSrc: ""},
+            { name: "Full Mission Unlock Token", value: "", demand: "", stability: "", imgSrc: ""},
+            { name: "Max Growth Token", value: "", demand: "", stability: "", imgSrc: ""},
+            { name: "Partial Growth Token", value: "", demand: "", stability: "", imgSrc: ""},
+            { name: "Partial Mission Unlock Token", value: "", demand: "", stability: "", imgSrc: ""},
+            { name: "Random Gacha Spin Token", value: "", demand: "", stability: "", imgSrc: ""},
+            { name: "Random Trial Creature Token", value: "", demand: "", stability: "", imgSrc: ""},
+            { name: "Revive Token", value: "", demand: "", stability: "", imgSrc: ""},
+            { name: "Random Weather Token", value: "", demand: "", stability: "", imgSrc: ""},
+            { name: "Strong Glimmer Token", value: "", demand: "", stability: "", imgSrc: ""},
+            { name: "Thunderstorm Summon Token", value: "", demand: "", stability: "", imgSrc: ""},
+            { name: "Volcanic Eruption Summon Token", value: "", demand: "", stability: "", imgSrc: ""},
+            { name: "Weak Glimmer Token", value: "", demand: "", stability: "", imgSrc: ""},
+            { name: "Boosted Gacha Token", value: "", demand: "", stability: "", imgSrc: ""},
+            { name: "Death Gacha Token", value: "", demand: "", stability: "", imgSrc: ""},
+            { name: "Galaxy Exploration Token", value: "", demand: "", stability: "", imgSrc: ""},
+            { name: "Master Token", value: "", demand: "", stability: "", imgSrc: ""},
+            { name: "Mecha Exploration Token", value: "", demand: "", stability: "", imgSrc: ""},
+            { name: "Monster Exploration Token", value: "", demand: "", stability: "", imgSrc: ""},
+            { name: "Photovore Exploration Token", value: "3k-4k", demand: "High", stability: "Stable", imgSrc: "FullMissionUnlockTokenRecode.png" },
+            { name: "Session Gacha Token", value: "2k-3k", demand: "Medium", stability: "Stable", imgSrc: "path/to/token2.jpg" },
+            { name: "Sweet Exploration Token", value: "500-1k", demand: "Low", stability: "Fluctuating", imgSrc: "path/to/token3.jpg" },
+            // Add more tokens as needed
+        ];
+
+        function displayTokens(tokens) {
+            const container = document.getElementById("tokenContainer");
+            container.innerHTML = "";
+            tokens.forEach(token => {
+                const tokenBox = document.createElement("div");
+                tokenBox.className = "token-box";
+                tokenBox.innerHTML = `
+                    <img src="${token.imgSrc}" alt="${token.name}" class="token-img">
+                    <h2>${token.name}</h2>
+                    <p>Value: ${token.value}</p>
+                    <p>Demand: ${token.demand}</p>
+                    <p>Stability: ${token.stability}</p>
+                `;
+                container.appendChild(tokenBox);
+            });
+        }
+
+        function filterTokens() {
+            const query = document.getElementById("searchBar").value.toLowerCase();
+            const filteredTokens = tokens.filter(token => token.name.toLowerCase().includes(query));
+            displayTokens(filteredTokens);
+        }
+
+        window.onload = () => {
+            displayTokens(tokens);
+        };
+    </script>
+    
+    <script>
+        function openMenu() {
+            document.getElementById("menu").style.width = "250px";
+        }
+
+        function closeMenu() {
+            document.getElementById("menu").style.width = "0";
+        }
+    </script>
+    
+    <script>
+        function chooseBackground(color) {
+            localStorage.setItem('backgroundColor', color);
+            window.location.href = 'calculator.html';
+        }
+    </script>
+</body>
+</html>

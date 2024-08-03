@@ -1,7 +1,7 @@
 // Mock data for creatures and their values
 const creatures = {
-  "Adharcaiin": 500,
-  "Barg": 600,
+  "Adharcaiin": 11000,
+  "Aereis": 25000,
   "Carnifex": 800,
   "Druid": 1000,
   // Add other creatures with their values here
@@ -21,10 +21,13 @@ function toggleThemBox() {
 
 // Function to calculate the values and display the result
 function calculateValue() {
-  const meCreatureName = document.getElementById('meCreature').value;
+  const meCreatureSelect = document.getElementById('meCreature');
+  const themCreatureSelect = document.getElementById('themCreature');
+
+  const meCreatureName = meCreatureSelect.value;
   const meMush = parseInt(document.getElementById('meMush').value) || 0;
 
-  const themCreatureName = document.getElementById('themCreature').value;
+  const themCreatureName = themCreatureSelect.value;
   const themMush = parseInt(document.getElementById('themMush').value) || 0;
 
   const meCreatureValue = creatures[meCreatureName] || 0;

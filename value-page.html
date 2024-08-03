@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Value Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Creature Values</h1>
+    </header>
+    <div class="search-container">
+        <input type="text" id="searchBar" placeholder="Search Creature" oninput="filterCreatures()">
+    </div>
+    
+    <div id="menu" class="menu">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeMenu()">&times;</a>
+          <a href="index.html">Home</a>
+          <a href="value-page.html">Creature Value</a>
+          <a href="plushie.html">Plush Value</a>
+          <a href="token.html">Token Value</a>
+    </div>
+    <div class="menu-button" onclick="openMenu()">&#9776;</div>
+    
+    <div class="creature-container" id="creatureContainer">
+        <!-- Creature boxes will be dynamically inserted here -->
+    </div>
+    <footer>
+        <p>&copy; 2024 MystiValue. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const creatures = [
+            { name: "Adharcaiin", value: 500, demand: "High", stability: "Stable" },
+            { name: "Barg", value: 600, demand: "Medium", stability: "Fluctuating" },
+            { name: "Carnifex", value: 800, demand: "Low", stability: "Stable" },
+            // Add more creatures as needed
+        ];
+
+        function displayCreatures(creatures) {
+            const container = document.getElementById("creatureContainer");
+            container.innerHTML = "";
+            creatures.forEach(creature => {
+                const creatureBox = document.createElement("div");
+                creatureBox.className = "creature-box";
+                creatureBox.innerHTML = `
+                    <h2>${creature.name}</h2>
+                    <p>Value: ${creature.value}</p>
+                    <p>Demand: ${creature.demand}</p>
+                    <p>Stability: ${creature.stability}</p>
+                `;
+                container.appendChild(creatureBox);
+            });
+        }
+
+        function filterCreatures() {
+            const query = document.getElementById("searchBar").value.toLowerCase();
+            const filteredCreatures = creatures.filter(creature => creature.name.toLowerCase().includes(query));
+            displayCreatures(filteredCreatures);
+        }
+
+        window.onload = () => {
+            displayCreatures(creatures);
+        };
+    </script>
+    
+    <script>
+        function openMenu() {
+            document.getElementById("menu").style.width = "250px";
+        }
+
+        function closeMenu() {
+            document.getElementById("menu").style.width = "0";
+        }
+    </script>
+    
+    <script>
+        function chooseBackground(color) {
+            localStorage.setItem('backgroundColor', color);
+            window.location.href = 'calculator.html';
+        }
+    </script>
+</body>
+</html>
